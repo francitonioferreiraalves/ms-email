@@ -1,0 +1,130 @@
+version: '3'
+
+services:
+  teste-postgres-compose:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "banco123"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/tito/volumePostgreSQL:/var/lib/postgresql/data 
+    networks:
+      - postgres-compose-network
+      
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "francitonio@yahoo.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2019!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - teste-postgres-compose
+    networks:
+      - postgres-compose-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
+    
+    
+    
+        ####OUTRO EXEMPLO #######
+        
+        
+        version: '3.8'
+
+services:
+  postgres-db:
+    container_name: postgres_container
+    image: postgres:13.2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: feltex
+      POSTGRES_DB: dbfeltex
+      PGDATA: /data/postgres
+    ports:
+      - "5432:5432"
+    restart: always
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4:5
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
